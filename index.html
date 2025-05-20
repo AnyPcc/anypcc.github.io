@@ -56,13 +56,13 @@
       width: 100%;
     }
     .table {
-      font-size: 13px;
+      font-size: 14px;
       width: 100%;
-      border-collapse: separate;
+      border-collapse: collapse;
       border-spacing: 0;
     }
     .table th, .table td {
-      padding: 8px 6px !important;
+      padding: 3px 2px !important;
       text-align: center;
       vertical-align: middle;
       white-space: nowrap;
@@ -88,12 +88,14 @@
       overflow-x: auto;
     }
     .metric-col {
-      min-width: 70px;
-      max-width: 80px;
+      min-width: 45px;
+      max-width: 50px;
+      padding: 3px 2px !important;
     }
     .size-col {
-      min-width: 60px;
-      max-width: 70px;
+      min-width: 45px;
+      max-width: 50px;
+      padding: 3px 2px !important;
     }
     .dataset-header {
       font-weight: bold;
@@ -267,7 +269,7 @@
   </div>
   
   <!-- 表格部分使用全宽展示 -->
-  <div class="container is-fluid table-container-wide" style="max-width: 45%; overflow-x: auto;">
+  <div class="container is-fluid table-container-wide" style="max-width: 85%; margin: 0 auto; overflow-x: auto;">
     <div class="content">
       <div class="table-caption">
         Performance comparison across different datasets and methods, with the best and second-best results highlighted in 
@@ -275,7 +277,7 @@
         <span style="background-color: #FFEB9C; padding: 2px 4px;">yellow</span> cells.
       </div>
       
-      <table class="table is-bordered is-striped is-narrow is-hoverable" style="width: 100%; font-size: 11px; table-layout: fixed;">
+      <table class="table is-bordered is-striped is-narrow is-hoverable" style="width: 100%; max-width: 900px; margin: 0 auto; font-size: 14px; table-layout: fixed;">
         <thead>
           <tr>
             <th rowspan="2" style="min-width: 85px; max-width: 90px;"></th>
@@ -284,18 +286,18 @@
             <th colspan="4" class="dataset-header">Deep Blending</th>
           </tr>
           <tr>
-            <th class="metric-col" style="width: 32px;">PSNR↑</th>
-            <th class="metric-col" style="width: 32px;">SSIM↑</th>
-            <th class="metric-col" style="width: 32px;">LPIPS↓</th>
-            <th class="size-col" style="width: 32px;">Size↓</th>
-            <th class="metric-col" style="width: 32px;">PSNR↑</th>
-            <th class="metric-col" style="width: 32px;">SSIM↑</th>
-            <th class="metric-col" style="width: 32px;">LPIPS↓</th>
-            <th class="size-col" style="width: 32px;">Size↓</th>
-            <th class="metric-col" style="width: 32px;">PSNR↑</th>
-            <th class="metric-col" style="width: 32px;">SSIM↑</th>
-            <th class="metric-col" style="width: 32px;">LPIPS↓</th>
-            <th class="size-col" style="width: 32px;">Size↓</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">PSNR↑</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">SSIM↑</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">LPIPS↓</th>
+            <th class="size-col" style="width: 45px; padding: 3px 2px !important;">Size↓</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">PSNR↑</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">SSIM↑</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">LPIPS↓</th>
+            <th class="size-col" style="width: 45px; padding: 3px 2px !important;">Size↓</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">PSNR↑</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">SSIM↑</th>
+            <th class="metric-col" style="width: 45px; padding: 3px 2px !important;">LPIPS↓</th>
+            <th class="size-col" style="width: 45px; padding: 3px 2px !important;">Size↓</th>
           </tr>
         </thead>
         <tbody>
