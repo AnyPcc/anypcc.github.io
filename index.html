@@ -159,62 +159,60 @@
 
 <!-- 标题部分 (Hero section) -->
 <section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
+  <div class="container is-fluid">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h1 class="title is-1 publication-title">GausPcc: A Novel Benchmark and Dataset for Efficient 3D Gaussian Splatting with Gaussian Point Cloud Compression</h1>
+        
+        <!-- 作者信息 (Author Information) -->
+        <div class="is-size-5 publication-authors">
+          <span class="author-block">
+            <a href="#">Kangli Wang</a><sup>1</sup>,</span>
+          <span class="author-block">
+            <a href="#">Shihao Li</a><sup>1</sup>,</span>
+          <span class="author-block">
+            <a href="#">Qianxi Yi</a><sup>1,2</sup>,
+          </span>
+          <span class="author-block">
+            <a href="#">Wei Gao</a><sup>1,2</sup>
+          </span>
+        </div>
+
+        <div class="is-size-5 publication-authors">
+          <span class="author-block"><sup>1</sup>Peking University,</span>
+          <span class="author-block"><sup>2</sup>PengCheng Laboratory</span>
+        </div>
+
+        <!-- 链接按钮 (Link Buttons) -->
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">GausPcc: A Novel Benchmark and Dataset for Efficient 3D Gaussian Splatting with Gaussian Point Cloud Compression</h1>
-          
-          <!-- 作者信息 (Author Information) -->
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="#">Kangli Wang</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="#">Shihao Li</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="#">Qianxi Yi</a><sup>1,2</sup>,
+          <div class="publication-links">
+            <!-- PDF Link -->
+            <span class="link-block">
+              <a href="#" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                </span>
+                <span>Paper</span> <!-- 论文 -->
+              </a>
             </span>
-            <span class="author-block">
-              <a href="#">Wei Gao</a><sup>1,2</sup>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Peking University,</span>
-            <span class="author-block"><sup>2</sup>PengCheng Laboratory</span>
-          </div>
-
-          <!-- 链接按钮 (Link Buttons) -->
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span> <!-- 论文 -->
+            <!-- Code Link -->
+            <span class="link-block">
+              <a href="#" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span> <!-- 代码 -->
                 </a>
-              </span>
-              <!-- Code Link -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span> <!-- 代码 -->
-                  </a>
-              </span>
-              <!-- Dataset Link -->
-              <span class="link-block">
-                <a href="#" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Dataset</span> <!-- 数据集 -->
-                  </a>
-              </span>
-            </div>
+            </span>
+            <!-- Dataset Link -->
+            <span class="link-block">
+              <a href="#" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="far fa-images"></i>
+                </span>
+                <span>Dataset</span> <!-- 数据集 -->
+                </a>
+            </span>
           </div>
         </div>
       </div>
@@ -224,7 +222,7 @@
 
 <!-- 相关研究链接 (Related Research Links) -->
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-fluid">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Research</h2> <!-- 相关研究 -->
@@ -256,7 +254,7 @@
 
 <!-- 项目概述部分 (Overview Section) -->
 <section class="section" id="overview">
-  <div class="container is-max-desktop">
+  <div class="container is-fluid">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Project Overview</h2> <!-- 项目概述 -->
@@ -273,7 +271,7 @@
 
 <!-- 数据集部分 (Dataset Section) -->
 <section class="section" id="dataset">
-  <div class="container is-max-desktop">
+  <div class="container is-fluid">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">GausPCC-1K Dataset</h2> <!-- GausPCC-1K 数据集 -->
@@ -290,9 +288,9 @@
 
 <!-- 实验结果部分 (Results Section) -->
 <section class="section" id="results">
-  <div class="container is-max-desktop">
+  <div class="container is-fluid">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column">
         <h2 class="title is-3">Experimental Results</h2> <!-- 实验结果 -->
 
         <!-- 性能对比表格 (Performance Comparison Table) -->
@@ -305,401 +303,399 @@
             <span style="background-color: #FFEB9C; padding: 2px 4px;">yellow</span> cells.
           </div>
           
-          <div class="table-section">
-            <table class="table is-bordered is-striped is-narrow is-hoverable">
-              <thead>
-                <tr>
-                  <th rowspan="2"></th>
-                  <th colspan="4" class="dataset-header">Mip-NeRF360</th>
-                  <th colspan="4" class="dataset-header">Tanks and Temples</th>
-                  <th colspan="4" class="dataset-header">Deep Blending</th>
-                </tr>
-                <tr>
-                  <th class="metric-col">PSNR↑</th>
-                  <th class="metric-col">SSIM↑</th>
-                  <th class="metric-col">LPIPS↓</th>
-                  <th class="size-col">Size↓</th>
-                  <th class="metric-col">PSNR↑</th>
-                  <th class="metric-col">SSIM↑</th>
-                  <th class="metric-col">LPIPS↓</th>
-                  <th class="size-col">Size↓</th>
-                  <th class="metric-col">PSNR↑</th>
-                  <th class="metric-col">SSIM↑</th>
-                  <th class="metric-col">LPIPS↓</th>
-                  <th class="size-col">Size↓</th>
-                </tr>
-              </thead>
-              <tbody>
-                <!-- 基础模型 (Base Models) -->
-                <tr>
-                  <td><strong>3DGS</strong></td>
-                  <td>27.46</td>
-                  <td class="highlight-red">0.812</td>
-                  <td>0.222</td>
-                  <td>750.9</td>
-                  <td>23.69</td>
-                  <td>0.844</td>
-                  <td>0.178</td>
-                  <td>431</td>
-                  <td>29.42</td>
-                  <td>0.899</td>
-                  <td>0.247</td>
-                  <td>663.9</td>
-                </tr>
-                <tr>
-                  <td><strong>Scaffold-GS</strong></td>
-                  <td>27.5</td>
-                  <td>0.806</td>
-                  <td>0.252</td>
-                  <td>253.9</td>
-                  <td>23.96</td>
-                  <td>0.853</td>
-                  <td>0.177</td>
-                  <td>86.5</td>
-                  <td>30.21</td>
-                  <td>0.906</td>
-                  <td>0.254</td>
-                  <td>66</td>
-                </tr>
-                
-                <!-- 压缩方法 (Compression Methods) -->
-                <tr>
-                  <td><strong>Compact3D</strong></td>
-                  <td>27.08</td>
-                  <td>0.798</td>
-                  <td>0.247</td>
-                  <td>48.8</td>
-                  <td>23.32</td>
-                  <td>0.831</td>
-                  <td>0.201</td>
-                  <td>39.43</td>
-                  <td>29.79</td>
-                  <td>0.901</td>
-                  <td>0.258</td>
-                  <td>43.21</td>
-                </tr>
-                <tr>
-                  <td><strong>SOG</strong></td>
-                  <td>26.56</td>
-                  <td>0.791</td>
-                  <td>0.241</td>
-                  <td>16.7</td>
-                  <td>23.15</td>
-                  <td>0.828</td>
-                  <td>0.198</td>
-                  <td>9.3</td>
-                  <td>29.12</td>
-                  <td>0.892</td>
-                  <td>0.270</td>
-                  <td>5.7</td>
-                </tr>
-                <tr>
-                  <td><strong>Compressed3D</strong></td>
-                  <td>26.98</td>
-                  <td>0.801</td>
-                  <td>0.238</td>
-                  <td>28.8</td>
-                  <td>23.32</td>
-                  <td>0.832</td>
-                  <td>0.194</td>
-                  <td>17.28</td>
-                  <td>29.38</td>
-                  <td>0.898</td>
-                  <td>0.253</td>
-                  <td>25.3</td>
-                </tr>
-                <tr>
-                  <td><strong>RDOGaussian</strong></td>
-                  <td>27.05</td>
-                  <td>0.802</td>
-                  <td>0.239</td>
-                  <td>23.5</td>
-                  <td>23.34</td>
-                  <td>0.835</td>
-                  <td>0.195</td>
-                  <td>12.03</td>
-                  <td>29.63</td>
-                  <td>0.902</td>
-                  <td>0.252</td>
-                  <td>18</td>
-                </tr>
-                <tr>
-                  <td><strong>ContextGS</strong></td>
-                  <td>27.62</td>
-                  <td>0.808</td>
-                  <td>0.237</td>
-                  <td>12.7</td>
-                  <td>24.20</td>
-                  <td>0.852</td>
-                  <td>0.184</td>
-                  <td>7.05</td>
-                  <td>30.11</td>
-                  <td>0.907</td>
-                  <td>0.265</td>
-                  <td>3.45</td>
-                </tr>
-                <tr>
-                  <td><strong>CompGS</strong></td>
-                  <td>26.37</td>
-                  <td>0.778</td>
-                  <td>0.276</td>
-                  <td>8.83</td>
-                  <td>23.11</td>
-                  <td>0.815</td>
-                  <td>0.236</td>
-                  <td>5.89</td>
-                  <td>29.30</td>
-                  <td>0.895</td>
-                  <td>0.293</td>
-                  <td>6.03</td>
-                </tr>
-                <tr>
-                  <td><strong>Reduced3DGS</strong></td>
-                  <td>27.19</td>
-                  <td>0.807</td>
-                  <td>0.230</td>
-                  <td>29.54</td>
-                  <td>23.57</td>
-                  <td>0.840</td>
-                  <td>0.188</td>
-                  <td>14.00</td>
-                  <td>29.63</td>
-                  <td>0.902</td>
-                  <td>0.249</td>
-                  <td>18.00</td>
-                </tr>
-                <tr>
-                  <td><strong>LightGaussian</strong></td>
-                  <td>27.00</td>
-                  <td>0.799</td>
-                  <td>0.249</td>
-                  <td>44.54</td>
-                  <td>22.83</td>
-                  <td>0.822</td>
-                  <td>0.242</td>
-                  <td>22.43</td>
-                  <td>27.01</td>
-                  <td>0.872</td>
-                  <td>0.308</td>
-                  <td>33.94</td>
-                </tr>
-                
-                <!-- 对比方法 (Comparison Methods) -->
-                <tr>
-                  <td><strong>TC-GS</strong></td>
-                  <td>27.61</td>
-                  <td>0.801</td>
-                  <td class="highlight-red">0.166</td>
-                  <td>13.85</td>
-                  <td>23.94</td>
-                  <td>0.843</td>
-                  <td class="highlight-red">0.113</td>
-                  <td>7.89</td>
-                  <td>30.04</td>
-                  <td>0.899</td>
-                  <td class="highlight-yellow">0.122</td>
-                  <td>4.20</td>
-                </tr>
-                <tr>
-                  <td><strong>HAC (low)</strong></td>
-                  <td>27.55</td>
-                  <td>0.807</td>
-                  <td>0.239</td>
-                  <td>15.23</td>
-                  <td>24.29</td>
-                  <td>0.850</td>
-                  <td>0.185</td>
-                  <td>8.06</td>
-                  <td>30.06</td>
-                  <td>0.907</td>
-                  <td>0.267</td>
-                  <td>4.31</td>
-                </tr>
-                <tr>
-                  <td><strong>HAC (high)</strong></td>
-                  <td>27.82</td>
-                  <td class="highlight-yellow">0.811</td>
-                  <td>0.229</td>
-                  <td>25.27</td>
-                  <td>24.36</td>
-                  <td class="highlight-red">0.857</td>
-                  <td>0.174</td>
-                  <td>13.22</td>
-                  <td>30.27</td>
-                  <td class="highlight-yellow">0.910</td>
-                  <td>0.255</td>
-                  <td>7.65</td>
-                </tr>
-                <tr>
-                  <td><strong>HAC++ (low)</strong></td>
-                  <td>27.54</td>
-                  <td>0.802</td>
-                  <td>0.253</td>
-                  <td>8.37</td>
-                  <td>24.30</td>
-                  <td>0.850</td>
-                  <td>0.189</td>
-                  <td>5.17</td>
-                  <td>30.13</td>
-                  <td>0.907</td>
-                  <td>0.265</td>
-                  <td>2.89</td>
-                </tr>
-                <tr>
-                  <td><strong>HAC++ (high)</strong></td>
-                  <td class="highlight-yellow">27.80</td>
-                  <td class="highlight-yellow">0.811</td>
-                  <td>0.230</td>
-                  <td>18.57</td>
-                  <td>24.28</td>
-                  <td class="highlight-yellow">0.856</td>
-                  <td>0.173</td>
-                  <td>10.52</td>
-                  <td class="highlight-red">30.34</td>
-                  <td class="highlight-yellow">0.910</td>
-                  <td>0.253</td>
-                  <td>6.71</td>
-                </tr>
-                <tr>
-                  <td><strong>CAT-3DGS (low)</strong></td>
-                  <td>27.14</td>
-                  <td>0.791</td>
-                  <td>0.279</td>
-                  <td class="highlight-yellow">5.51</td>
-                  <td>24.20</td>
-                  <td>0.838</td>
-                  <td>0.217</td>
-                  <td class="highlight-yellow">3.57</td>
-                  <td>29.64</td>
-                  <td>0.900</td>
-                  <td>0.294</td>
-                  <td class="highlight-yellow">1.95</td>
-                </tr>
-                <tr>
-                  <td><strong>CAT-3DGS (high)</strong></td>
-                  <td>27.70</td>
-                  <td>0.808</td>
-                  <td>0.246</td>
-                  <td>12.36</td>
-                  <td>24.38</td>
-                  <td>0.850</td>
-                  <td>0.195</td>
-                  <td>6.73</td>
-                  <td>30.18</td>
-                  <td class="highlight-yellow">0.910</td>
-                  <td>0.273</td>
-                  <td>3.65</td>
-                </tr>
-                
-                <!-- 我们的方法 (Our Methods) -->
-                <tr>
-                  <td><strong>Ours-TC-GS</strong></td>
-                  <td>27.59</td>
-                  <td>0.800</td>
-                  <td class="highlight-yellow">0.167</td>
-                  <td>11.94</td>
-                  <td>23.88</td>
-                  <td>0.838</td>
-                  <td class="highlight-yellow">0.117</td>
-                  <td>6.74</td>
-                  <td>30.14</td>
-                  <td>0.901</td>
-                  <td class="highlight-red">0.119</td>
-                  <td>3.57</td>
-                </tr>
-                <tr>
-                  <td><strong>Ours-HAC (low)</strong></td>
-                  <td>27.54</td>
-                  <td>0.807</td>
-                  <td>0.239</td>
-                  <td>12.48</td>
-                  <td>24.23</td>
-                  <td>0.849</td>
-                  <td>0.187</td>
-                  <td>6.53</td>
-                  <td>30.11</td>
-                  <td>0.906</td>
-                  <td>0.266</td>
-                  <td>3.56</td>
-                </tr>
-                <tr>
-                  <td><strong>Ours-HAC (high)</strong></td>
-                  <td class="highlight-red">27.86</td>
-                  <td class="highlight-yellow">0.811</td>
-                  <td>0.229</td>
-                  <td>22.03</td>
-                  <td class="highlight-red">24.52</td>
-                  <td class="highlight-red">0.857</td>
-                  <td>0.175</td>
-                  <td>10.87</td>
-                  <td>30.30</td>
-                  <td class="highlight-red">0.911</td>
-                  <td>0.254</td>
-                  <td>6.63</td>
-                </tr>
-                <tr>
-                  <td><strong>Ours-HAC++ (low)</strong></td>
-                  <td>27.58</td>
-                  <td>0.803</td>
-                  <td>0.252</td>
-                  <td>8.18</td>
-                  <td>24.18</td>
-                  <td>0.848</td>
-                  <td>0.189</td>
-                  <td>5.22</td>
-                  <td>30.17</td>
-                  <td>0.907</td>
-                  <td>0.266</td>
-                  <td>2.83</td>
-                </tr>
-                <tr>
-                  <td><strong>Ours-HAC++ (high)</strong></td>
-                  <td class="highlight-yellow">27.80</td>
-                  <td class="highlight-yellow">0.811</td>
-                  <td>0.231</td>
-                  <td>18.25</td>
-                  <td>24.33</td>
-                  <td class="highlight-yellow">0.856</td>
-                  <td>0.174</td>
-                  <td>10.3</td>
-                  <td class="highlight-yellow">30.31</td>
-                  <td class="highlight-yellow">0.910</td>
-                  <td>0.254</td>
-                  <td>6.69</td>
-                </tr>
-                <tr>
-                  <td><strong>Ours-CAT (low)</strong></td>
-                  <td>27.13</td>
-                  <td>0.790</td>
-                  <td>0.281</td>
-                  <td class="highlight-red">4.33</td>
-                  <td>24.12</td>
-                  <td>0.836</td>
-                  <td>0.219</td>
-                  <td class="highlight-red">2.87</td>
-                  <td>29.81</td>
-                  <td>0.900</td>
-                  <td>0.294</td>
-                  <td class="highlight-red">1.56</td>
-                </tr>
-                <tr>
-                  <td><strong>Ours-CAT (high)</strong></td>
-                  <td>27.70</td>
-                  <td>0.808</td>
-                  <td>0.247</td>
-                  <td>10.42</td>
-                  <td class="highlight-yellow">24.45</td>
-                  <td>0.850</td>
-                  <td>0.195</td>
-                  <td>5.49</td>
-                  <td>30.10</td>
-                  <td class="highlight-yellow">0.910</td>
-                  <td>0.273</td>
-                  <td>3.12</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <table class="table is-bordered is-striped is-narrow is-hoverable">
+            <thead>
+              <tr>
+                <th rowspan="2"></th>
+                <th colspan="4" class="dataset-header">Mip-NeRF360</th>
+                <th colspan="4" class="dataset-header">Tanks and Temples</th>
+                <th colspan="4" class="dataset-header">Deep Blending</th>
+              </tr>
+              <tr>
+                <th class="metric-col">PSNR↑</th>
+                <th class="metric-col">SSIM↑</th>
+                <th class="metric-col">LPIPS↓</th>
+                <th class="size-col">Size↓</th>
+                <th class="metric-col">PSNR↑</th>
+                <th class="metric-col">SSIM↑</th>
+                <th class="metric-col">LPIPS↓</th>
+                <th class="size-col">Size↓</th>
+                <th class="metric-col">PSNR↑</th>
+                <th class="metric-col">SSIM↑</th>
+                <th class="metric-col">LPIPS↓</th>
+                <th class="size-col">Size↓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- 基础模型 (Base Models) -->
+              <tr>
+                <td><strong>3DGS</strong></td>
+                <td>27.46</td>
+                <td class="highlight-red">0.812</td>
+                <td>0.222</td>
+                <td>750.9</td>
+                <td>23.69</td>
+                <td>0.844</td>
+                <td>0.178</td>
+                <td>431</td>
+                <td>29.42</td>
+                <td>0.899</td>
+                <td>0.247</td>
+                <td>663.9</td>
+              </tr>
+              <tr>
+                <td><strong>Scaffold-GS</strong></td>
+                <td>27.5</td>
+                <td>0.806</td>
+                <td>0.252</td>
+                <td>253.9</td>
+                <td>23.96</td>
+                <td>0.853</td>
+                <td>0.177</td>
+                <td>86.5</td>
+                <td>30.21</td>
+                <td>0.906</td>
+                <td>0.254</td>
+                <td>66</td>
+              </tr>
+              
+              <!-- 压缩方法 (Compression Methods) -->
+              <tr>
+                <td><strong>Compact3D</strong></td>
+                <td>27.08</td>
+                <td>0.798</td>
+                <td>0.247</td>
+                <td>48.8</td>
+                <td>23.32</td>
+                <td>0.831</td>
+                <td>0.201</td>
+                <td>39.43</td>
+                <td>29.79</td>
+                <td>0.901</td>
+                <td>0.258</td>
+                <td>43.21</td>
+              </tr>
+              <tr>
+                <td><strong>SOG</strong></td>
+                <td>26.56</td>
+                <td>0.791</td>
+                <td>0.241</td>
+                <td>16.7</td>
+                <td>23.15</td>
+                <td>0.828</td>
+                <td>0.198</td>
+                <td>9.3</td>
+                <td>29.12</td>
+                <td>0.892</td>
+                <td>0.270</td>
+                <td>5.7</td>
+              </tr>
+              <tr>
+                <td><strong>Compressed3D</strong></td>
+                <td>26.98</td>
+                <td>0.801</td>
+                <td>0.238</td>
+                <td>28.8</td>
+                <td>23.32</td>
+                <td>0.832</td>
+                <td>0.194</td>
+                <td>17.28</td>
+                <td>29.38</td>
+                <td>0.898</td>
+                <td>0.253</td>
+                <td>25.3</td>
+              </tr>
+              <tr>
+                <td><strong>RDOGaussian</strong></td>
+                <td>27.05</td>
+                <td>0.802</td>
+                <td>0.239</td>
+                <td>23.5</td>
+                <td>23.34</td>
+                <td>0.835</td>
+                <td>0.195</td>
+                <td>12.03</td>
+                <td>29.63</td>
+                <td>0.902</td>
+                <td>0.252</td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td><strong>ContextGS</strong></td>
+                <td>27.62</td>
+                <td>0.808</td>
+                <td>0.237</td>
+                <td>12.7</td>
+                <td>24.20</td>
+                <td>0.852</td>
+                <td>0.184</td>
+                <td>7.05</td>
+                <td>30.11</td>
+                <td>0.907</td>
+                <td>0.265</td>
+                <td>3.45</td>
+              </tr>
+              <tr>
+                <td><strong>CompGS</strong></td>
+                <td>26.37</td>
+                <td>0.778</td>
+                <td>0.276</td>
+                <td>8.83</td>
+                <td>23.11</td>
+                <td>0.815</td>
+                <td>0.236</td>
+                <td>5.89</td>
+                <td>29.30</td>
+                <td>0.895</td>
+                <td>0.293</td>
+                <td>6.03</td>
+              </tr>
+              <tr>
+                <td><strong>Reduced3DGS</strong></td>
+                <td>27.19</td>
+                <td>0.807</td>
+                <td>0.230</td>
+                <td>29.54</td>
+                <td>23.57</td>
+                <td>0.840</td>
+                <td>0.188</td>
+                <td>14.00</td>
+                <td>29.63</td>
+                <td>0.902</td>
+                <td>0.249</td>
+                <td>18.00</td>
+              </tr>
+              <tr>
+                <td><strong>LightGaussian</strong></td>
+                <td>27.00</td>
+                <td>0.799</td>
+                <td>0.249</td>
+                <td>44.54</td>
+                <td>22.83</td>
+                <td>0.822</td>
+                <td>0.242</td>
+                <td>22.43</td>
+                <td>27.01</td>
+                <td>0.872</td>
+                <td>0.308</td>
+                <td>33.94</td>
+              </tr>
+              
+              <!-- 对比方法 (Comparison Methods) -->
+              <tr>
+                <td><strong>TC-GS</strong></td>
+                <td>27.61</td>
+                <td>0.801</td>
+                <td class="highlight-red">0.166</td>
+                <td>13.85</td>
+                <td>23.94</td>
+                <td>0.843</td>
+                <td class="highlight-red">0.113</td>
+                <td>7.89</td>
+                <td>30.04</td>
+                <td>0.899</td>
+                <td class="highlight-yellow">0.122</td>
+                <td>4.20</td>
+              </tr>
+              <tr>
+                <td><strong>HAC (low)</strong></td>
+                <td>27.55</td>
+                <td>0.807</td>
+                <td>0.239</td>
+                <td>15.23</td>
+                <td>24.29</td>
+                <td>0.850</td>
+                <td>0.185</td>
+                <td>8.06</td>
+                <td>30.06</td>
+                <td>0.907</td>
+                <td>0.267</td>
+                <td>4.31</td>
+              </tr>
+              <tr>
+                <td><strong>HAC (high)</strong></td>
+                <td>27.82</td>
+                <td class="highlight-yellow">0.811</td>
+                <td>0.229</td>
+                <td>25.27</td>
+                <td>24.36</td>
+                <td class="highlight-red">0.857</td>
+                <td>0.174</td>
+                <td>13.22</td>
+                <td>30.27</td>
+                <td class="highlight-yellow">0.910</td>
+                <td>0.255</td>
+                <td>7.65</td>
+              </tr>
+              <tr>
+                <td><strong>HAC++ (low)</strong></td>
+                <td>27.54</td>
+                <td>0.802</td>
+                <td>0.253</td>
+                <td>8.37</td>
+                <td>24.30</td>
+                <td>0.850</td>
+                <td>0.189</td>
+                <td>5.17</td>
+                <td>30.13</td>
+                <td>0.907</td>
+                <td>0.265</td>
+                <td>2.89</td>
+              </tr>
+              <tr>
+                <td><strong>HAC++ (high)</strong></td>
+                <td class="highlight-yellow">27.80</td>
+                <td class="highlight-yellow">0.811</td>
+                <td>0.230</td>
+                <td>18.57</td>
+                <td>24.28</td>
+                <td class="highlight-yellow">0.856</td>
+                <td>0.173</td>
+                <td>10.52</td>
+                <td class="highlight-red">30.34</td>
+                <td class="highlight-yellow">0.910</td>
+                <td>0.253</td>
+                <td>6.71</td>
+              </tr>
+              <tr>
+                <td><strong>CAT-3DGS (low)</strong></td>
+                <td>27.14</td>
+                <td>0.791</td>
+                <td>0.279</td>
+                <td class="highlight-yellow">5.51</td>
+                <td>24.20</td>
+                <td>0.838</td>
+                <td>0.217</td>
+                <td class="highlight-yellow">3.57</td>
+                <td>29.64</td>
+                <td>0.900</td>
+                <td>0.294</td>
+                <td class="highlight-yellow">1.95</td>
+              </tr>
+              <tr>
+                <td><strong>CAT-3DGS (high)</strong></td>
+                <td>27.70</td>
+                <td>0.808</td>
+                <td>0.246</td>
+                <td>12.36</td>
+                <td>24.38</td>
+                <td>0.850</td>
+                <td>0.195</td>
+                <td>6.73</td>
+                <td>30.18</td>
+                <td class="highlight-yellow">0.910</td>
+                <td>0.273</td>
+                <td>3.65</td>
+              </tr>
+              
+              <!-- 我们的方法 (Our Methods) -->
+              <tr>
+                <td><strong>Ours-TC-GS</strong></td>
+                <td>27.59</td>
+                <td>0.800</td>
+                <td class="highlight-yellow">0.167</td>
+                <td>11.94</td>
+                <td>23.88</td>
+                <td>0.838</td>
+                <td class="highlight-yellow">0.117</td>
+                <td>6.74</td>
+                <td>30.14</td>
+                <td>0.901</td>
+                <td class="highlight-red">0.119</td>
+                <td>3.57</td>
+              </tr>
+              <tr>
+                <td><strong>Ours-HAC (low)</strong></td>
+                <td>27.54</td>
+                <td>0.807</td>
+                <td>0.239</td>
+                <td>12.48</td>
+                <td>24.23</td>
+                <td>0.849</td>
+                <td>0.187</td>
+                <td>6.53</td>
+                <td>30.11</td>
+                <td>0.906</td>
+                <td>0.266</td>
+                <td>3.56</td>
+              </tr>
+              <tr>
+                <td><strong>Ours-HAC (high)</strong></td>
+                <td class="highlight-red">27.86</td>
+                <td class="highlight-yellow">0.811</td>
+                <td>0.229</td>
+                <td>22.03</td>
+                <td class="highlight-red">24.52</td>
+                <td class="highlight-red">0.857</td>
+                <td>0.175</td>
+                <td>10.87</td>
+                <td>30.30</td>
+                <td class="highlight-red">0.911</td>
+                <td>0.254</td>
+                <td>6.63</td>
+              </tr>
+              <tr>
+                <td><strong>Ours-HAC++ (low)</strong></td>
+                <td>27.58</td>
+                <td>0.803</td>
+                <td>0.252</td>
+                <td>8.18</td>
+                <td>24.18</td>
+                <td>0.848</td>
+                <td>0.189</td>
+                <td>5.22</td>
+                <td>30.17</td>
+                <td>0.907</td>
+                <td>0.266</td>
+                <td>2.83</td>
+              </tr>
+              <tr>
+                <td><strong>Ours-HAC++ (high)</strong></td>
+                <td class="highlight-yellow">27.80</td>
+                <td class="highlight-yellow">0.811</td>
+                <td>0.231</td>
+                <td>18.25</td>
+                <td>24.33</td>
+                <td class="highlight-yellow">0.856</td>
+                <td>0.174</td>
+                <td>10.3</td>
+                <td class="highlight-yellow">30.31</td>
+                <td class="highlight-yellow">0.910</td>
+                <td>0.254</td>
+                <td>6.69</td>
+              </tr>
+              <tr>
+                <td><strong>Ours-CAT (low)</strong></td>
+                <td>27.13</td>
+                <td>0.790</td>
+                <td>0.281</td>
+                <td class="highlight-red">4.33</td>
+                <td>24.12</td>
+                <td>0.836</td>
+                <td>0.219</td>
+                <td class="highlight-red">2.87</td>
+                <td>29.81</td>
+                <td>0.900</td>
+                <td>0.294</td>
+                <td class="highlight-red">1.56</td>
+              </tr>
+              <tr>
+                <td><strong>Ours-CAT (high)</strong></td>
+                <td>27.70</td>
+                <td>0.808</td>
+                <td>0.247</td>
+                <td>10.42</td>
+                <td class="highlight-yellow">24.45</td>
+                <td>0.850</td>
+                <td>0.195</td>
+                <td>5.49</td>
+                <td>30.10</td>
+                <td class="highlight-yellow">0.910</td>
+                <td>0.273</td>
+                <td>3.12</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -708,7 +704,7 @@
 
 <!-- RD曲线 (RD Curves) -->
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-fluid">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h3 class="title is-4">Rate-Distortion Curves</h3> <!-- RD 曲线 -->
@@ -744,7 +740,7 @@
 
 <!-- 页脚 (Footer) -->
 <footer class="footer">
-  <div class="container">
+  <div class="container is-fluid">
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content has-text-centered">

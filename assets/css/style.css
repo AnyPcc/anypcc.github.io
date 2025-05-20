@@ -1,21 +1,17 @@
 /* 表格样式 Table Styles */
-.table-section {
-  width: 100%;
-  overflow-x: auto;
-  margin-bottom: 1.5rem;
-}
-
 .table {
   font-size: 13px;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 0 !important;
+  margin-bottom: 1.5rem !important;
+  table-layout: auto;
 }
 
 .table th, .table td {
   padding: 8px 6px;
   text-align: center;
   border: 1px solid #dbdbdb;
+  white-space: nowrap;
 }
 
 .table th {
@@ -26,8 +22,10 @@
   z-index: 10;
 }
 
-.table td {
-  min-width: 50px;
+.table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  min-width: 140px;
 }
 
 /* 表格列宽控制 */
@@ -35,16 +33,17 @@
   font-weight: bold;
   border-bottom: 2px solid #dbdbdb;
   border-right: 2px solid #dbdbdb;
+  background-color: #f5f5f5;
 }
 
 .metric-col {
-  min-width: 60px;
-  max-width: 70px;
+  min-width: 55px;
+  max-width: 65px;
 }
 
 .size-col {
-  min-width: 60px;
-  max-width: 70px;
+  min-width: 55px;
+  max-width: 65px;
   border-right: 2px solid #dbdbdb;
 }
 
@@ -59,9 +58,10 @@
 
 /* 表格说明样式 */
 .table-caption {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-style: italic;
   color: #555;
+  text-align: center;
 }
 
 /* 表格悬停效果 */
@@ -70,11 +70,26 @@
 }
 
 /* 表格条纹样式 */
+.table.is-striped tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 .table.is-striped tbody tr:nth-child(odd) {
-  background-color: #fbfbfb;
+  background-color: #ffffff;
 }
 
 /* 表格行分组样式 - 用于视觉上分组数据 */
-.table tbody tr:nth-child(6n) td {
+.table tbody tr:nth-child(9n) td {
   border-bottom: 2px solid #dbdbdb;
+}
+
+/* 适应流体容器的样式 */
+.container.is-fluid {
+  max-width: none;
+  width: 98%;
+  margin: 0 auto;
+}
+
+.container.is-fluid .table {
+  width: 100%;
 } 
