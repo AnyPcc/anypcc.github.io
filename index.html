@@ -33,8 +33,14 @@
   <style>
     .pdf-container {
       width: 100%;
-      height: 500px;
+      text-align: center;
       margin: 20px 0;
+    }
+    .pdf-container img {
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
     }
     .image-container {
       text-align: center;
@@ -46,7 +52,25 @@
     }
     .table-container {
       overflow-x: auto;
-      margin: 20px 0;
+      margin: 30px 0;
+    }
+    .table {
+      font-size: 14px;
+    }
+    .table th, .table td {
+      padding: 12px 15px !important;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .table-caption {
+      caption-side: top;
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    section {
+      padding: 3rem 1.5rem;
     }
   </style>
 </head>
@@ -194,7 +218,19 @@
         <h2 class="title is-3">Project Overview</h2> <!-- 项目概述 -->
         <div class="content">
           <div class="pdf-container">
-            <embed src="./static/images/overview.pdf" type="application/pdf" width="100%" height="100%">
+            <div class="notification is-info is-light">
+              <p class="has-text-centered">
+                <a href="./static/images/overview.pdf" target="_blank" class="button is-primary">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>View Project Overview PDF</span>
+                </a>
+              </p>
+              <p class="has-text-centered mt-3">
+                <small>Click the button above to open the PDF in a new tab</small>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -210,7 +246,19 @@
         <h2 class="title is-3">GausPCC-1K Dataset</h2> <!-- GausPCC-1K 数据集 -->
         <div class="content">
           <div class="pdf-container">
-            <embed src="./static/images/gauspcc_1k.pdf" type="application/pdf" width="100%" height="100%">
+            <div class="notification is-info is-light">
+              <p class="has-text-centered">
+                <a href="./static/images/gauspcc_1k.pdf" target="_blank" class="button is-primary">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>View GausPCC-1K Dataset PDF</span>
+                </a>
+              </p>
+              <p class="has-text-centered mt-3">
+                <small>Click the button above to open the PDF in a new tab</small>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -230,11 +278,13 @@
         <div class="content">
           <div class="table-container">
             <!-- HTML表格替换原iframe (HTML table replacing the iframe) -->
+            <div class="table-caption">
+              Performance comparison across different datasets and methods, with the best and second-best results highlighted in 
+              <span style="background-color: #FFC7CE; padding: 2px 4px;">red</span> and 
+              <span style="background-color: #FFEB9C; padding: 2px 4px;">yellow</span> cells.
+              <!-- 性能比较：不同数据集和方法的表现，最佳结果以红色标记，次佳结果以黄色标记 -->
+            </div>
             <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-              <caption style="caption-side: top; text-align: center; margin-bottom: 10px; font-weight: bold;">
-                Performance comparison across different datasets and methods, with the best and second-best results highlighted in <span style="background-color: #FFC7CE; padding: 2px 4px;">red</span> and <span style="background-color: #FFEB9C; padding: 2px 4px;">yellow</span> cells.
-                <!-- 性能比较：不同数据集和方法的表现，最佳结果以红色标记，次佳结果以黄色标记 -->
-              </caption>
               <thead>
                 <tr>
                   <th rowspan="2" style="vertical-align: middle; text-align: center; border-right: 2px solid #dbdbdb;"></th>
