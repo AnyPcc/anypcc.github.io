@@ -3,28 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="GausPcc: A Gaussian Point Cloud Compression Framework">
+  <meta name="keywords" content="Gaussian, Point Cloud, Compression">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>GausPcc</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
-
+  <!-- 引入字体 (Import fonts) -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
 
+  <!-- 引入样式表 (Import stylesheets) -->
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
@@ -34,14 +22,37 @@
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="./static/images/favicon.svg">
 
+  <!-- 引入脚本 (Import scripts) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  
+  <!-- 自定义样式 (Custom styles) -->
+  <style>
+    .pdf-container {
+      width: 100%;
+      height: 500px;
+      margin: 20px 0;
+    }
+    .image-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+  </style>
 </head>
 <body>
 
+<!-- 导航栏 (Navigation bar) -->
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -52,7 +63,7 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://keunhong.com">
+      <a class="navbar-item" href="#">
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
@@ -60,114 +71,82 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          More Research
+          Navigation <!-- 导航 -->
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://hypernerf.github.io">
-            HyperNeRF
+          <a class="navbar-item" href="#overview">
+            Project Overview <!-- 项目概述 -->
           </a>
-          <a class="navbar-item" href="https://nerfies.github.io">
-            Nerfies
+          <a class="navbar-item" href="#dataset">
+            Dataset <!-- 数据集 -->
           </a>
-          <a class="navbar-item" href="https://latentfusion.github.io">
-            LatentFusion
-          </a>
-          <a class="navbar-item" href="https://photoshape.github.io">
-            PhotoShape
+          <a class="navbar-item" href="#results">
+            Experimental Results <!-- 实验结果 -->
           </a>
         </div>
       </div>
     </div>
-
   </div>
 </nav>
 
-
+<!-- 标题部分 (Hero section) -->
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title">GausPcc: A Novel Benchmark and Dataset for Efficient 3D Gaussian Splatting with Gaussian Point Cloud Compression</h1>
+          
+          <!-- 作者信息 (Author Information) -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://keunhong.com">Keunhong Park</a><sup>1</sup>,</span>
+              <a href="#">Kangli Wang</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://utkarshsinha.com">Utkarsh Sinha</a><sup>2</sup>,</span>
+              <a href="#">Shihao Li</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="https://jonbarron.info">Jonathan T. Barron</a><sup>2</sup>,
+              <a href="#">Qianxi Yi</a><sup>1,2</sup>,
             </span>
             <span class="author-block">
-              <a href="http://sofienbouaziz.com">Sofien Bouaziz</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://www.danbgoldman.com">Dan B Goldman</a><sup>2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://homes.cs.washington.edu/~seitz/">Steven M. Seitz</a><sup>1,2</sup>,
-            </span>
-            <span class="author-block">
-              <a href="http://www.ricardomartinbrualla.com">Ricardo Martin-Brualla</a><sup>2</sup>
+              <a href="#">Wei Gao</a><sup>1,2</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Washington,</span>
-            <span class="author-block"><sup>2</sup>Google Research</span>
+            <span class="author-block"><sup>1</sup>Peking University,</span>
+            <span class="author-block"><sup>2</sup>PengCheng Laboratory</span>
           </div>
 
+          <!-- 链接按钮 (Link Buttons) -->
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
+              <!-- PDF Link -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>Paper</span> <!-- 论文 -->
                 </a>
               </span>
+              <!-- Code Link -->
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2011.12948"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
-                  </a>
+                  <span>Code</span> <!-- 代码 -->
+                </a>
               </span>
-              <!-- Dataset Link. -->
+              <!-- Dataset Link -->
               <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
                   </span>
-                  <span>Data</span>
-                  </a>
+                  <span>Dataset</span> <!-- 数据集 -->
+                </a>
+              </span>
             </div>
-
           </div>
         </div>
       </div>
@@ -175,310 +154,522 @@
   </div>
 </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
-      </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+<!-- 相关研究链接 (Related Research Links) -->
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Research</h2> <!-- 相关研究 -->
+
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
+            Related research.
+            <!-- 以下是高斯点云压缩领域的一些相关研究工作。 -->
           </p>
           <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
+            <a href="#">3D Gaussian Splatting</a> introduces the foundational technique for efficient view synthesis using 3D Gaussians.
+            <!-- 3D高斯散射介绍了使用3D高斯进行高效视图合成的基础技术。 -->
           </p>
           <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            <a href="#">Scaffold-GS</a> and <a href="#">Compact3D</a> 
+            both propose methods for more efficient representation of 3D Gaussian scenes.
+            <!-- Scaffold-GS和Compact3D都提出了更高效表示3D高斯场景的方法。 -->
+          </p>
+          <p>
+            <a href="#">TC-GS</a>, <a href="#">HAC</a>, and <a href="#">CAT-3DGS</a>
+            represent different approaches to compress Gaussian representations with various trade-offs between quality and file size.
+            <!-- TC-GS、HAC和CAT-3DGS代表了压缩高斯表示的不同方法，在质量和文件大小之间有不同的权衡。 -->
           </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
-
-<section class="section">
+<!-- 项目概述部分 (Overview Section) -->
+<section class="section" id="overview">
   <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Project Overview</h2> <!-- 项目概述 -->
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
+          <div class="pdf-container">
+            <embed src="./static/images/overview.pdf" type="application/pdf" width="100%" height="100%">
           </div>
-
         </div>
       </div>
     </div>
-    <!--/ Matting. -->
+  </div>
+</section>
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
+<!-- 数据集部分 (Dataset Section) -->
+<section class="section" id="dataset">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">GausPCC-1K Dataset</h2> <!-- GausPCC-1K 数据集 -->
+        <div class="content">
+          <div class="pdf-container">
+            <embed src="./static/images/gauspcc_1k.pdf" type="application/pdf" width="100%" height="100%">
           </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 实验结果部分 (Results Section) -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experimental Results</h2> <!-- 实验结果 -->
+
+        <!-- 性能对比表格 (Performance Comparison Table) -->
+        <h3 class="title is-4">Performance Comparison</h3> <!-- 性能对比表格 -->
+        <div class="content">
+          <div class="table-container">
+            <!-- HTML表格替换原iframe (HTML table replacing the iframe) -->
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+              <caption style="caption-side: top; text-align: center; margin-bottom: 10px; font-weight: bold;">
+                Performance comparison across different datasets and methods, with the best and second-best results highlighted in <span style="background-color: #FFC7CE; padding: 2px 4px;">red</span> and <span style="background-color: #FFEB9C; padding: 2px 4px;">yellow</span> cells.
+                <!-- 性能比较：不同数据集和方法的表现，最佳结果以红色标记，次佳结果以黄色标记 -->
+              </caption>
+              <thead>
+                <tr>
+                  <th rowspan="2" style="vertical-align: middle; text-align: center; border-right: 2px solid #dbdbdb;"></th>
+                  <th colspan="4" style="text-align: center; border-right: 2px solid #dbdbdb;"><strong>Mip-NeRF360</strong></th>
+                  <th colspan="4" style="text-align: center; border-right: 2px solid #dbdbdb;"><strong>Tanks and Temples</strong></th>
+                  <th colspan="4" style="text-align: center;"><strong>Deep Blending</strong></th>
+                </tr>
+                <tr>
+                  <th style="text-align: center;"><strong>PSNR↑</strong></th>
+                  <th style="text-align: center;"><strong>SSIM↑</strong></th>
+                  <th style="text-align: center;"><strong>LPIPS↓</strong></th>
+                  <th style="text-align: center; border-right: 2px solid #dbdbdb;"><strong>Size↓</strong></th>
+                  <th style="text-align: center;"><strong>PSNR↑</strong></th>
+                  <th style="text-align: center;"><strong>SSIM↑</strong></th>
+                  <th style="text-align: center;"><strong>LPIPS↓</strong></th>
+                  <th style="text-align: center; border-right: 2px solid #dbdbdb;"><strong>Size↓</strong></th>
+                  <th style="text-align: center;"><strong>PSNR↑</strong></th>
+                  <th style="text-align: center;"><strong>SSIM↑</strong></th>
+                  <th style="text-align: center;"><strong>LPIPS↓</strong></th>
+                  <th style="text-align: center;"><strong>Size↓</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- 基础模型 (Base Models) -->
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>3DGS</strong></td>
+                  <td style="text-align: center;">27.46</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">0.812</td>
+                  <td style="text-align: center;">0.222</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">750.9</td>
+                  <td style="text-align: center;">23.69</td>
+                  <td style="text-align: center;">0.844</td>
+                  <td style="text-align: center;">0.178</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">431</td>
+                  <td style="text-align: center;">29.42</td>
+                  <td style="text-align: center;">0.899</td>
+                  <td style="text-align: center;">0.247</td>
+                  <td style="text-align: center;">663.9</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Scaffold-GS</strong></td>
+                  <td style="text-align: center;">27.5</td>
+                  <td style="text-align: center;">0.806</td>
+                  <td style="text-align: center;">0.252</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">253.9</td>
+                  <td style="text-align: center;">23.96</td>
+                  <td style="text-align: center;">0.853</td>
+                  <td style="text-align: center;">0.177</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">86.5</td>
+                  <td style="text-align: center;">30.21</td>
+                  <td style="text-align: center;">0.906</td>
+                  <td style="text-align: center;">0.254</td>
+                  <td style="text-align: center;">66</td>
+                </tr>
+                
+                <!-- 压缩方法 (Compression Methods) -->
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Compact3D</strong></td>
+                  <td style="text-align: center;">27.08</td>
+                  <td style="text-align: center;">0.798</td>
+                  <td style="text-align: center;">0.247</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">48.8</td>
+                  <td style="text-align: center;">23.32</td>
+                  <td style="text-align: center;">0.831</td>
+                  <td style="text-align: center;">0.201</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">39.43</td>
+                  <td style="text-align: center;">29.79</td>
+                  <td style="text-align: center;">0.901</td>
+                  <td style="text-align: center;">0.258</td>
+                  <td style="text-align: center;">43.21</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>SOG</strong></td>
+                  <td style="text-align: center;">26.56</td>
+                  <td style="text-align: center;">0.791</td>
+                  <td style="text-align: center;">0.241</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">16.7</td>
+                  <td style="text-align: center;">23.15</td>
+                  <td style="text-align: center;">0.828</td>
+                  <td style="text-align: center;">0.198</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">9.3</td>
+                  <td style="text-align: center;">29.12</td>
+                  <td style="text-align: center;">0.892</td>
+                  <td style="text-align: center;">0.270</td>
+                  <td style="text-align: center;">5.7</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Compressed3D</strong></td>
+                  <td style="text-align: center;">26.98</td>
+                  <td style="text-align: center;">0.801</td>
+                  <td style="text-align: center;">0.238</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">28.8</td>
+                  <td style="text-align: center;">23.32</td>
+                  <td style="text-align: center;">0.832</td>
+                  <td style="text-align: center;">0.194</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">17.28</td>
+                  <td style="text-align: center;">29.38</td>
+                  <td style="text-align: center;">0.898</td>
+                  <td style="text-align: center;">0.253</td>
+                  <td style="text-align: center;">25.3</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>RDOGaussian</strong></td>
+                  <td style="text-align: center;">27.05</td>
+                  <td style="text-align: center;">0.802</td>
+                  <td style="text-align: center;">0.239</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">23.5</td>
+                  <td style="text-align: center;">23.34</td>
+                  <td style="text-align: center;">0.835</td>
+                  <td style="text-align: center;">0.195</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">12.03</td>
+                  <td style="text-align: center;">29.63</td>
+                  <td style="text-align: center;">0.902</td>
+                  <td style="text-align: center;">0.252</td>
+                  <td style="text-align: center;">18</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>ContextGS</strong></td>
+                  <td style="text-align: center;">27.62</td>
+                  <td style="text-align: center;">0.808</td>
+                  <td style="text-align: center;">0.237</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">12.7</td>
+                  <td style="text-align: center;">24.20</td>
+                  <td style="text-align: center;">0.852</td>
+                  <td style="text-align: center;">0.184</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">7.05</td>
+                  <td style="text-align: center;">30.11</td>
+                  <td style="text-align: center;">0.907</td>
+                  <td style="text-align: center;">0.265</td>
+                  <td style="text-align: center;">3.45</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>CompGS</strong></td>
+                  <td style="text-align: center;">26.37</td>
+                  <td style="text-align: center;">0.778</td>
+                  <td style="text-align: center;">0.276</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">8.83</td>
+                  <td style="text-align: center;">23.11</td>
+                  <td style="text-align: center;">0.815</td>
+                  <td style="text-align: center;">0.236</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">5.89</td>
+                  <td style="text-align: center;">29.30</td>
+                  <td style="text-align: center;">0.895</td>
+                  <td style="text-align: center;">0.293</td>
+                  <td style="text-align: center;">6.03</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Reduced3DGS</strong></td>
+                  <td style="text-align: center;">27.19</td>
+                  <td style="text-align: center;">0.807</td>
+                  <td style="text-align: center;">0.230</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">29.54</td>
+                  <td style="text-align: center;">23.57</td>
+                  <td style="text-align: center;">0.840</td>
+                  <td style="text-align: center;">0.188</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">14.00</td>
+                  <td style="text-align: center;">29.63</td>
+                  <td style="text-align: center;">0.902</td>
+                  <td style="text-align: center;">0.249</td>
+                  <td style="text-align: center;">18.00</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>LightGaussian</strong></td>
+                  <td style="text-align: center;">27.00</td>
+                  <td style="text-align: center;">0.799</td>
+                  <td style="text-align: center;">0.249</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">44.54</td>
+                  <td style="text-align: center;">22.83</td>
+                  <td style="text-align: center;">0.822</td>
+                  <td style="text-align: center;">0.242</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">22.43</td>
+                  <td style="text-align: center;">27.01</td>
+                  <td style="text-align: center;">0.872</td>
+                  <td style="text-align: center;">0.308</td>
+                  <td style="text-align: center;">33.94</td>
+                </tr>
+                
+                <!-- 对比方法 (Comparison Methods) -->
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>TC-GS</strong></td>
+                  <td style="text-align: center;">27.61</td>
+                  <td style="text-align: center;">0.801</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">0.166</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">13.85</td>
+                  <td style="text-align: center;">23.94</td>
+                  <td style="text-align: center;">0.843</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">0.113</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">7.89</td>
+                  <td style="text-align: center;">30.04</td>
+                  <td style="text-align: center;">0.899</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.122</td>
+                  <td style="text-align: center;">4.20</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>HAC (low)</strong></td>
+                  <td style="text-align: center;">27.55</td>
+                  <td style="text-align: center;">0.807</td>
+                  <td style="text-align: center;">0.239</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">15.23</td>
+                  <td style="text-align: center;">24.29</td>
+                  <td style="text-align: center;">0.850</td>
+                  <td style="text-align: center;">0.185</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">8.06</td>
+                  <td style="text-align: center;">30.06</td>
+                  <td style="text-align: center;">0.907</td>
+                  <td style="text-align: center;">0.267</td>
+                  <td style="text-align: center;">4.31</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>HAC (high)</strong></td>
+                  <td style="text-align: center;">27.82</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.811</td>
+                  <td style="text-align: center;">0.229</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">25.27</td>
+                  <td style="text-align: center;">24.36</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">0.857</td>
+                  <td style="text-align: center;">0.174</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">13.22</td>
+                  <td style="text-align: center;">30.27</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.910</td>
+                  <td style="text-align: center;">0.255</td>
+                  <td style="text-align: center;">7.65</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>HAC++ (low)</strong></td>
+                  <td style="text-align: center;">27.54</td>
+                  <td style="text-align: center;">0.802</td>
+                  <td style="text-align: center;">0.253</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">8.37</td>
+                  <td style="text-align: center;">24.30</td>
+                  <td style="text-align: center;">0.850</td>
+                  <td style="text-align: center;">0.189</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">5.17</td>
+                  <td style="text-align: center;">30.13</td>
+                  <td style="text-align: center;">0.907</td>
+                  <td style="text-align: center;">0.265</td>
+                  <td style="text-align: center;">2.89</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>HAC++ (high)</strong></td>
+                  <td style="text-align: center; background-color: #FFEB9C;">27.80</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.811</td>
+                  <td style="text-align: center;">0.230</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">18.57</td>
+                  <td style="text-align: center;">24.28</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.856</td>
+                  <td style="text-align: center;">0.173</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">10.52</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">30.34</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.910</td>
+                  <td style="text-align: center;">0.253</td>
+                  <td style="text-align: center;">6.71</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>CAT-3DGS (low)</strong></td>
+                  <td style="text-align: center;">27.14</td>
+                  <td style="text-align: center;">0.791</td>
+                  <td style="text-align: center;">0.279</td>
+                  <td style="text-align: center; background-color: #FFEB9C; border-right: 2px solid #dbdbdb;">5.51</td>
+                  <td style="text-align: center;">24.20</td>
+                  <td style="text-align: center;">0.838</td>
+                  <td style="text-align: center;">0.217</td>
+                  <td style="text-align: center; background-color: #FFEB9C; border-right: 2px solid #dbdbdb;">3.57</td>
+                  <td style="text-align: center;">29.64</td>
+                  <td style="text-align: center;">0.900</td>
+                  <td style="text-align: center;">0.294</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">1.95</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>CAT-3DGS (high)</strong></td>
+                  <td style="text-align: center;">27.70</td>
+                  <td style="text-align: center;">0.808</td>
+                  <td style="text-align: center;">0.246</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">12.36</td>
+                  <td style="text-align: center;">24.38</td>
+                  <td style="text-align: center;">0.850</td>
+                  <td style="text-align: center;">0.195</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">6.73</td>
+                  <td style="text-align: center;">30.18</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.910</td>
+                  <td style="text-align: center;">0.273</td>
+                  <td style="text-align: center;">3.65</td>
+                </tr>
+                
+                <!-- 我们的方法 (Our Methods) -->
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Ours-TC-GS</strong></td>
+                  <td style="text-align: center;">27.59</td>
+                  <td style="text-align: center;">0.800</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.167</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">11.94</td>
+                  <td style="text-align: center;">23.88</td>
+                  <td style="text-align: center;">0.838</td>
+                  <td style="text-align: center;">0.117</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">6.74</td>
+                  <td style="text-align: center;">30.14</td>
+                  <td style="text-align: center;">0.901</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">0.119</td>
+                  <td style="text-align: center;">3.57</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Ours-HAC (low)</strong></td>
+                  <td style="text-align: center;">27.54</td>
+                  <td style="text-align: center;">0.807</td>
+                  <td style="text-align: center;">0.239</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">12.48</td>
+                  <td style="text-align: center;">24.23</td>
+                  <td style="text-align: center;">0.849</td>
+                  <td style="text-align: center;">0.187</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">6.53</td>
+                  <td style="text-align: center;">30.11</td>
+                  <td style="text-align: center;">0.906</td>
+                  <td style="text-align: center;">0.266</td>
+                  <td style="text-align: center;">3.56</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Ours-HAC (high)</strong></td>
+                  <td style="text-align: center; background-color: #FFC7CE;">27.86</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.811</td>
+                  <td style="text-align: center;">0.229</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">22.03</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">24.52</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">0.857</td>
+                  <td style="text-align: center;">0.175</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">10.87</td>
+                  <td style="text-align: center;">30.30</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">0.911</td>
+                  <td style="text-align: center;">0.254</td>
+                  <td style="text-align: center;">6.63</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Ours-HAC++ (low)</strong></td>
+                  <td style="text-align: center;">27.58</td>
+                  <td style="text-align: center;">0.803</td>
+                  <td style="text-align: center;">0.252</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">8.18</td>
+                  <td style="text-align: center;">24.18</td>
+                  <td style="text-align: center;">0.848</td>
+                  <td style="text-align: center;">0.189</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">5.22</td>
+                  <td style="text-align: center;">30.17</td>
+                  <td style="text-align: center;">0.907</td>
+                  <td style="text-align: center;">0.266</td>
+                  <td style="text-align: center;">2.83</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Ours-HAC++ (high)</strong></td>
+                  <td style="text-align: center; background-color: #FFEB9C;">27.80</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.811</td>
+                  <td style="text-align: center;">0.231</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">18.25</td>
+                  <td style="text-align: center;">24.33</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.856</td>
+                  <td style="text-align: center;">0.174</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">10.3</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">30.31</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.910</td>
+                  <td style="text-align: center;">0.254</td>
+                  <td style="text-align: center;">6.69</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Ours-CAT (low)</strong></td>
+                  <td style="text-align: center;">27.13</td>
+                  <td style="text-align: center;">0.790</td>
+                  <td style="text-align: center;">0.281</td>
+                  <td style="text-align: center; background-color: #FFC7CE; border-right: 2px solid #dbdbdb;">4.33</td>
+                  <td style="text-align: center;">24.12</td>
+                  <td style="text-align: center;">0.836</td>
+                  <td style="text-align: center;">0.219</td>
+                  <td style="text-align: center; background-color: #FFC7CE; border-right: 2px solid #dbdbdb;">2.87</td>
+                  <td style="text-align: center;">29.81</td>
+                  <td style="text-align: center;">0.900</td>
+                  <td style="text-align: center;">0.294</td>
+                  <td style="text-align: center; background-color: #FFC7CE;">1.56</td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; border-right: 2px solid #dbdbdb;"><strong>Ours-CAT (high)</strong></td>
+                  <td style="text-align: center;">27.70</td>
+                  <td style="text-align: center;">0.808</td>
+                  <td style="text-align: center;">0.247</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">10.42</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">24.45</td>
+                  <td style="text-align: center;">0.850</td>
+                  <td style="text-align: center;">0.195</td>
+                  <td style="text-align: center; border-right: 2px solid #dbdbdb;">5.49</td>
+                  <td style="text-align: center;">30.10</td>
+                  <td style="text-align: center; background-color: #FFEB9C;">0.910</td>
+                  <td style="text-align: center;">0.273</td>
+                  <td style="text-align: center;">3.12</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- RD曲线 (RD Curves) -->
+        <h3 class="title is-4">Rate-Distortion Curves</h3> <!-- RD 曲线 -->
+        <div class="content">
+          <div class="columns is-multiline">
+            <!-- PSNR曲线 (PSNR Curve) -->
+            <div class="column is-12">
+              <h4 class="subtitle is-5">PSNR</h4>
+              <div class="image-container">
+                <img src="./static/images/rd_curves_psnr.png" alt="PSNR RD Curves">
+              </div>
             </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
+            <!-- LPIPS曲线 (LPIPS Curve) -->
+            <div class="column is-12">
+              <h4 class="subtitle is-5">LPIPS</h4>
+              <div class="image-container">
+                <img src="./static/images/rd_curves_lpips.png" alt="LPIPS RD Curves">
+              </div>
+            </div>
+            <!-- SSIM曲线 (SSIM Curve) -->
+            <div class="column is-12">
+              <h4 class="subtitle is-5">SSIM</h4>
+              <div class="image-container">
+                <img src="./static/images/rd_curves_ssim.png" alt="SSIM RD Curves">
+              </div>
+            </div>
           </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
         </div>
       </div>
     </div>
-    <!--/ Concurrent Work. -->
-
   </div>
 </section>
 
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
-  </div>
-</section>
-
-
+<!-- 页脚 (Footer) -->
 <footer class="footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
       <div class="column is-8">
-        <div class="content">
+        <div class="content has-text-centered">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            © 2024 GausPCC
           </p>
         </div>
       </div>

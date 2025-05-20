@@ -1,0 +1,46 @@
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage[table,xcdraw]{xcolor}
+% \usepackage{graphicx}
+% \usepackage{booktabs}
+% \usepackage{array}
+% Beamer presentation requires \usepackage{colortbl} instead of \usepackage[table,xcdraw]{xcolor}
+\begin{table}[]
+\caption{Performance comparison across different datasets and methods, with the best and second-best results highlighted in \colorbox[HTML]{FFC7CE}{\textcolor{black}{red}} and \colorbox[HTML]{FFEB9C}{\textcolor{black}{yellow}} cells.}
+\label{table:gszip}
+\centering
+\resizebox{1.0\textwidth}{!}{
+\setlength{\tabcolsep}{3pt} 
+\begin{tabular}{c|cccc|cccc|cccc}
+\toprule
+                                                                                     & \multicolumn{4}{c|}{\textbf{Mip-NeRF360}} & \multicolumn{4}{c|}{\textbf{Tanks and Temples}} & \multicolumn{4}{c}{\textbf{Deep Blending}} \\
+{\textbf{\begin{tabular}[c]{@{}c@{}}Datasets\\ Models\end{tabular}}} & PSNR$\uparrow$     & SSIM$\uparrow$     & LPIPS$\downarrow$    & Size$\downarrow$     & PSNR$\uparrow$       & SSIM$\uparrow$       & LPIPS$\downarrow$     & Size$\downarrow$      & PSNR$\uparrow$      & SSIM$\uparrow$     & LPIPS$\downarrow$    & Size$\downarrow$     \\ \toprule
+\textbf{3DGS} \cite{3dgs}                                                                        & 27.46    & \cellcolor[HTML]{FFC7CE}{0.812}    & 0.222    & 750.9    & 23.69      & 0.844      & 0.178     & 431       & 29.42     & 0.899    & 0.247    & 663.9    \\
+\textbf{Scaffold-GS} \cite{lu2024scaffold}                                                                 & 27.5     & 0.806    & 0.252    & 253.9    & 23.96      & 0.853      & 0.177     & 86.5      & 30.21     & 0.906    & 0.254    & 66       \\ \hline
+\textbf{Compact3D} \cite{lee2024compact}                                                                  & 27.08    & 0.798    & 0.247    & 48.8     & 23.32      & 0.831      & 0.201     & 39.43     & 29.79     & 0.901    & 0.258    & 43.21    \\
+\textbf{SOG} \cite{morgenstern2024compact}                                                                         & 26.56    & 0.791    & 0.241    & 16.7     & 23.15      & 0.828      & 0.198     & 9.3       & 29.12     & 0.892    & 0.270     & 5.7      \\
+\textbf{Compressed3D} \cite{niedermayr2024compressed}                                                                & 26.98    & 0.801    & 0.238    & 28.8     & 23.32      & 0.832      & 0.194     & 17.28     & 29.38     & 0.898    & 0.253    & 25.3     \\
+\textbf{RDOGaussian} \cite{wang2024end}                                                                 & 27.05    & 0.802    & 0.239    & 23.5     & 23.34      & 0.835      & 0.195     & 12.03     & 29.63     & 0.902    & 0.252    & 18       \\
+\textbf{ContextGS} \cite{wang2024contextgs}                                                                   & 27.62    & 0.808    & 0.237    & 12.7     & 24.20       & 0.852      & 0.184     & 7.05      & 30.11     & 0.907    & 0.265    & 3.45     \\ 
+\textbf{CompGS} \cite{liu2024compgs} & 26.37    & 0.778    & 0.276    & 8.83     & 23.11       & 0.815      & 0.236     & 5.89      & 29.30     & 0.895    & 0.293    & 6.03  \\
+\textbf{Reduced3DGS} \cite{papantonakis2024reducing} & 27.19    & 0.807    & 0.230    & 29.54 & 23.57       & 0.840      & 0.188     & 14.00      & 29.63     & 0.902    & 0.249    & 18.00  \\
+\textbf{LightGaussian} \cite{fan2024lightgaussian} & 27.00    & 0.799    & 0.249    & 44.54 & 22.83       & 0.822      & 0.242     & 22.43      & 27.01     & 0.872    & 0.308    & 33.94  \\
+\hline
+\textbf{TC-GS} \cite{wang2025tc} & 27.61    & 0.801    & \cellcolor[HTML]{FFC7CE}{0.166}    & 13.85    & 23.94      & 0.843      & \cellcolor[HTML]{FFC7CE}{0.113}     & 7.89      & 30.04     & 0.899    & \cellcolor[HTML]{FFEB9C}{0.122}    & 4.20     \\
+\textbf{HAC (low)} \cite{chen2024hac}                                                                   & 27.55    & 0.807    & 0.239    & 15.23    & 24.29      & 0.850      & 0.185     & 8.06      & 30.06     & 0.907    & 0.267    & 4.31     \\
+\textbf{HAC (high)} \cite{chen2024hac}                                                                  & 27.82    & \cellcolor[HTML]{FFEB9C}{0.811}    & 0.229    & 25.27    & 24.36      & \cellcolor[HTML]{FFC7CE}{0.857}      & 0.174     & 13.22     & 30.27     & \cellcolor[HTML]{FFEB9C}{0.910}    & 0.255    & 7.65     \\
+\textbf{HAC++ (low)} \cite{chen2025hac++}                                                                 & 27.54    & 0.802    & 0.253    & 8.37     & 24.30       & 0.850       & 0.189     & 5.17      & 30.13     & 0.907    & 0.265    & 2.89     \\
+\textbf{HAC++ (high)} \cite{chen2025hac++}                                                               & \cellcolor[HTML]{FFEB9C}{27.80}     & \cellcolor[HTML]{FFEB9C}{0.811}    & 0.230     & 18.57    & 24.28      & \cellcolor[HTML]{FFEB9C}{0.856}      & 0.173     & 10.52     & \cellcolor[HTML]{FFC7CE}{30.34}     & \cellcolor[HTML]{FFEB9C}{0.910}     & 0.253    & 6.71      \\
+\textbf{CAT-3DGS (low)} \cite{zhancat}                                                              & 27.14    & 0.791    & 0.279    & \cellcolor[HTML]{FFEB9C}{5.51}     & 24.20      & 0.838      & 0.217     & \cellcolor[HTML]{FFEB9C}{3.57}      & 29.64     & 0.900     & 0.294    & \cellcolor[HTML]{FFEB9C}{1.95}     \\
+\textbf{CAT-3DGS (high)} \cite{zhancat}                                                            & 27.70    & 0.808    & 0.246    & 12.36    & 24.38      & 0.850      & 0.195     & 6.73      & 30.18     & \cellcolor[HTML]{FFEB9C}{0.910}     & 0.273    & 3.65     \\ \hline
+\textbf{Ours-TC-GS} & 27.59    & 0.800    & \cellcolor[HTML]{FFEB9C}{0.167}    & 11.94    & 23.88      & 0.838      & \cellcolor[HTML]{FFEB9C}{0.117}     & 6.74      & 30.14     & 0.901    & \cellcolor[HTML]{FFC7CE}{0.119}    & 3.57     \\
+\cellcolor[HTML]{FFFFFF}\textbf{Ours-HAC (low)}                                   & 27.54    & 0.807    & 0.239    & 12.48    & 24.23      & 0.849      & 0.187     & 6.53      & 30.11     & 0.906    & 0.266    & 3.56     \\
+\cellcolor[HTML]{FFFFFF}\textbf{Ours-HAC (high)}                                  & \cellcolor[HTML]{FFC7CE}{27.86}    & \cellcolor[HTML]{FFEB9C}{0.811}    & 0.229    & 22.03    & \cellcolor[HTML]{FFC7CE}{24.52}      & \cellcolor[HTML]{FFC7CE}{0.857}      & 0.175     & 10.87     & 30.30     & \cellcolor[HTML]{FFC7CE}{0.911}    & 0.254    & 6.63     \\
+\cellcolor[HTML]{FFFFFF}\textbf{Ours-HAC++ (low)}                                 & 27.58    & 0.803    & 0.252    & 8.18     & 24.18      & 0.848      & 0.189     & 5.22      & 30.17     & 0.907    & 0.266    & 2.83     \\
+\cellcolor[HTML]{FFFFFF}\textbf{Ours-HAC++ (high)}                                & \cellcolor[HTML]{FFEB9C}{27.80}     & \cellcolor[HTML]{FFEB9C}{0.811}    & 0.231    & 18.25    & 24.33      & \cellcolor[HTML]{FFEB9C}{0.856}      & 0.174     & 10.3      & \cellcolor[HTML]{FFEB9C}{30.31}     & \cellcolor[HTML]{FFEB9C}{0.910}     & 0.254    & 6.69     \\
+\cellcolor[HTML]{FFFFFF}\textbf{Ours-CAT (low)}                              & 27.13    & 0.790    & 0.281    & \cellcolor[HTML]{FFC7CE}{4.33}     & 24.12      & 0.836      & 0.219     & \cellcolor[HTML]{FFC7CE}{2.87}      & 29.81     & 0.900     & 0.294    & \cellcolor[HTML]{FFC7CE}{1.56}     \\
+\cellcolor[HTML]{FFFFFF}\textbf{Ours-CAT (high)}                             & 27.70    & 0.808    & 0.247    & 10.42    & \cellcolor[HTML]{FFEB9C}{24.45}      & 0.850      & 0.195     & 5.49      & 30.10     & \cellcolor[HTML]{FFEB9C}{0.910}     & 0.273    & 3.12     \\ \toprule
+\end{tabular}
+}
+\vspace{-6pt}
+\end{table}
