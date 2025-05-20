@@ -8,7 +8,7 @@
 }
 
 .table th, .table td {
-  padding: 4px 3px;
+  padding: 3px 2px;
   text-align: center;
   border: 1px solid #dbdbdb;
   white-space: nowrap;
@@ -22,13 +22,14 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  font-size: 12px;
 }
 
 .table td:first-child {
   text-align: left;
   font-weight: 600;
-  min-width: 100px;
-  max-width: 110px;
+  min-width: 95px;
+  max-width: 100px;
 }
 
 /* 表格列宽控制 */
@@ -41,15 +42,15 @@
 }
 
 .metric-col {
-  min-width: 40px;
-  max-width: 45px;
-  width: 40px;
+  min-width: 38px;
+  max-width: 42px;
+  width: 38px;
 }
 
 .size-col {
-  min-width: 40px;
-  max-width: 45px;
-  width: 40px;
+  min-width: 38px;
+  max-width: 42px;
+  width: 38px;
   border-right: 2px solid #dbdbdb;
 }
 
@@ -103,7 +104,7 @@
 
 /* 宽表格容器特别样式 */
 .table-container-wide {
-  max-width: 60%;
+  max-width: 55%;
   margin: 0 auto 2rem auto;
   overflow-x: auto;
 }
@@ -111,11 +112,11 @@
 /* 在小屏幕上的响应式处理 */
 @media screen and (max-width: 1023px) {
   .table-container-wide {
-    max-width: 80%;
+    max-width: 75%;
   }
   
   .table th, .table td {
-    padding: 3px 2px;
+    padding: 2px 1px;
     font-size: 11px;
   }
 } 
