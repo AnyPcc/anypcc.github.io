@@ -1,6 +1,6 @@
 /* 表格样式 Table Styles */
 .table {
-  font-size: 12px;
+  font-size: 11px;
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 1.5rem !important;
@@ -8,7 +8,7 @@
 }
 
 .table th, .table td {
-  padding: 3px 2px;
+  padding: 2px 1px;
   text-align: center;
   border: 1px solid #dbdbdb;
   white-space: nowrap;
@@ -22,14 +22,14 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .table td:first-child {
   text-align: left;
   font-weight: 600;
-  min-width: 95px;
-  max-width: 100px;
+  min-width: 85px;
+  max-width: 90px;
 }
 
 /* 表格列宽控制 */
@@ -38,19 +38,19 @@
   border-bottom: 2px solid #dbdbdb;
   border-right: 2px solid #dbdbdb;
   background-color: #f5f5f5;
-  padding: 3px 2px;
+  padding: 2px 1px;
 }
 
 .metric-col {
-  min-width: 38px;
-  max-width: 42px;
-  width: 38px;
+  min-width: 32px;
+  max-width: 35px;
+  width: 32px;
 }
 
 .size-col {
-  min-width: 38px;
-  max-width: 42px;
-  width: 38px;
+  min-width: 32px;
+  max-width: 35px;
+  width: 32px;
   border-right: 2px solid #dbdbdb;
 }
 
@@ -69,7 +69,7 @@
   font-style: italic;
   color: #555;
   text-align: center;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* 表格悬停效果 */
@@ -104,7 +104,7 @@
 
 /* 宽表格容器特别样式 */
 .table-container-wide {
-  max-width: 55%;
+  max-width: 45%;
   margin: 0 auto 2rem auto;
   overflow-x: auto;
 }
@@ -112,11 +112,11 @@
 /* 在小屏幕上的响应式处理 */
 @media screen and (max-width: 1023px) {
   .table-container-wide {
-    max-width: 75%;
+    max-width: 70%;
   }
   
   .table th, .table td {
-    padding: 2px 1px;
-    font-size: 11px;
+    padding: 1px;
+    font-size: 10px;
   }
 } 

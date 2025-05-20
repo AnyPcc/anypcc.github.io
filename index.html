@@ -267,7 +267,7 @@
   </div>
   
   <!-- 表格部分使用全宽展示 -->
-  <div class="container is-fluid table-container-wide">
+  <div class="container is-fluid table-container-wide" style="max-width: 45%; overflow-x: auto;">
     <div class="content">
       <div class="table-caption">
         Performance comparison across different datasets and methods, with the best and second-best results highlighted in 
@@ -275,27 +275,27 @@
         <span style="background-color: #FFEB9C; padding: 2px 4px;">yellow</span> cells.
       </div>
       
-      <table class="table is-bordered is-striped is-narrow is-hoverable">
+      <table class="table is-bordered is-striped is-narrow is-hoverable" style="width: 100%; font-size: 11px; table-layout: fixed;">
         <thead>
           <tr>
-            <th rowspan="2"></th>
+            <th rowspan="2" style="min-width: 85px; max-width: 90px;"></th>
             <th colspan="4" class="dataset-header">Mip-NeRF360</th>
             <th colspan="4" class="dataset-header">Tanks and Temples</th>
             <th colspan="4" class="dataset-header">Deep Blending</th>
           </tr>
           <tr>
-            <th class="metric-col">PSNR↑</th>
-            <th class="metric-col">SSIM↑</th>
-            <th class="metric-col">LPIPS↓</th>
-            <th class="size-col">Size↓</th>
-            <th class="metric-col">PSNR↑</th>
-            <th class="metric-col">SSIM↑</th>
-            <th class="metric-col">LPIPS↓</th>
-            <th class="size-col">Size↓</th>
-            <th class="metric-col">PSNR↑</th>
-            <th class="metric-col">SSIM↑</th>
-            <th class="metric-col">LPIPS↓</th>
-            <th class="size-col">Size↓</th>
+            <th class="metric-col" style="width: 32px;">PSNR↑</th>
+            <th class="metric-col" style="width: 32px;">SSIM↑</th>
+            <th class="metric-col" style="width: 32px;">LPIPS↓</th>
+            <th class="size-col" style="width: 32px;">Size↓</th>
+            <th class="metric-col" style="width: 32px;">PSNR↑</th>
+            <th class="metric-col" style="width: 32px;">SSIM↑</th>
+            <th class="metric-col" style="width: 32px;">LPIPS↓</th>
+            <th class="size-col" style="width: 32px;">Size↓</th>
+            <th class="metric-col" style="width: 32px;">PSNR↑</th>
+            <th class="metric-col" style="width: 32px;">SSIM↑</th>
+            <th class="metric-col" style="width: 32px;">LPIPS↓</th>
+            <th class="size-col" style="width: 32px;">Size↓</th>
           </tr>
         </thead>
         <tbody>
