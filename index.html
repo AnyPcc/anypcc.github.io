@@ -252,10 +252,6 @@
     </div>
   </div>
 </section>
-
-
-
-
 <!-- 项目概述部分 (Overview Section) -->
 <section class="section" id="overview">
   <div class="container is-max-desktop">
@@ -264,10 +260,12 @@
         <!-- <h2 class="title is-3">Project Overview</h2> 项目概述 -->
         <div class="content">
           <div class="pdf-container">
-            <!-- 直接显示PNG图片 -->
-            <img src="./static/images/overview.png" alt="Project Overview" class="image">
+            <!-- Replace the image with the video -->
+            <video autoplay loop muted playsinline style="width: 100%; max-width: 100%; height: auto; border-radius: 8px;">
+              <source src="./static/images/anypcc_video_prune.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
-          
           <!-- 这里空了一行 -->
           <p class="has-text-justified" style="margin-top: 20px;">
             (a) AnyPcc Architecture. A single, unified model compresses point clouds from any source, with our Instance-Adaptive Fine-Tuning (IAFT) module boosting performance on out-of-distribution (OOD) data. (b) AnyPcc Benchmark. Our comprehensive benchmark features 15 diverse datasets, including both standard and extreme cases. When compared against five state-of-the-art methods, AnyPcc consistently achieves high compression efficiency across all types of point clouds. 
@@ -277,7 +275,6 @@
     </div>
   </div>
 </section>
-
 <!-- 相关研究链接 (Related Research Links) -->
 <!-- 摘要部分 -->
 <section class="section">
@@ -302,7 +299,7 @@
       <div class="column is-8">
         <div class="content has-text-centered">
           <p>
-            © 2025 GausPcc
+            © 2025 AnyPcc
           </p>
           <p>
             Website built upon <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
