@@ -2,11 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description"
-        content="GausPcc: A Gaussian Point Cloud Compression Framework">
-  <meta name="keywords" content="Gaussian, Point Cloud, Compression">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="AnyPcc: Compressing Any Point Cloud with a Single Universal Model">
+  <meta property="og:title" content="AnyPcc"/>
+  <meta property="og:description" content="AnyPcc"/>
+  <!-- <meta property="og:url" content="https://hwjiang1510.github.io/RayZer"/> -->
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/images/icon.png">
+  <meta property="og:image:width" content="600"/>
+  <meta property="og:image:height" content="600"/>
+
+
+  <meta name="twitter:title" content="AnyPcc">
+  <meta name="twitter:description" content="Compressing Any Point Cloud with a Single Universal Model">
+  <meta name="twitter:image" content="static/images/icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="point cloud, compression">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GausPcc</title>
 
   <!-- 引入字体 (Import fonts) -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
@@ -155,6 +169,9 @@
           <a class="navbar-item" href="https://uni-pcgc.github.io/">
             UniPCGC <!-- 项目概述 -->
           </a>
+          <a class="navbar-item" href="https://gauspcc.github.io/">
+            GausPcc <!-- 项目概述 -->
+          </a>
           </a>
         </div>
       </div>
@@ -168,16 +185,18 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">GausPcc: A Novel Benchmark and Dataset for Efficient 3D Gaussian Splatting with Gaussian Point Cloud Compression</h1>
+          <h1 class="title is-1 publication-title">AnyPcc: Compressing Any Point Cloud with a Single Universal Model</h1>
           
           <!-- 作者信息 (Author Information) -->
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://github.com/Wangkkklll">Kangli Wang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="#">Qianxi Yi</a><sup>1,2</sup>,
             <span class="author-block">
-              <a href="#">Shihao Li</a><sup>1</sup>,</span>
+              <a href="#">Yuqi Ye</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="#">Qianxi Yi</a><sup>1,2</sup>,
+              <a href="#">Shihao Li</a><sup>1,2</sup>,
             </span>
             <span class="author-block">
               <a href="https://gaowei262.github.io/">Wei Gao</a><sup>1,2</sup>
@@ -201,7 +220,7 @@
               </span>
               <!-- Code Link -->
               <span class="link-block">
-                <a href="https://github.com/Wangkkklll/GausPcc" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/Wangkkklll/AnyPcc" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
@@ -226,7 +245,6 @@
 </section>
 
 <!-- 相关研究链接 (Related Research Links) -->
-
 <!-- 摘要部分 -->
 <section class="section">
   <div class="container is-max-desktop">
@@ -235,13 +253,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p class="has-text-justified">
-            Recently, immersive media and autonomous driving applications have significantly advanced through 3D Gaussian Splatting (3DGS), which offers high-fidelity rendering and computational efficiency. Despite these advantages, 3DGS as a display-oriented representation requires substantial storage due to its numerous Gaussian attributes. Current compression methods have shown promising results but typically neglect the compression of Gaussian spatial positions, creating unnecessary bitstream overhead.
-          </p>
-          <p class="has-text-justified">
-            We conceptualize Gaussian primitives as point clouds and propose leveraging point cloud compression techniques for more effective storage. AI-based point cloud compression demonstrates superior performance and faster inference compared to MPEG Geometry-based Point Cloud Compression (G-PCC). However, direct application of existing models to Gaussian compression may yield suboptimal results, as Gaussian point clouds tend to exhibit globally sparse yet locally dense geometric distributions that differ from conventional point cloud characteristics.
-          </p>
-          <p class="has-text-justified">
-            To address these challenges, we introduce <strong><em>GausPcgc</em></strong> for Gaussian point cloud geometry compression along with a specialized training dataset <strong><em>GausPcc-1K</em></strong>. Our work pioneers the integration of AI-based point cloud compression into Gaussian compression pipelines, achieving superior compression ratios. The framework complements existing Gaussian compression methods while delivering significant performance improvements. All code, data, and pre-trained models will be publicly released to facilitate further research advances in this field.
+            Generalization remains a critical challenge for deep learning-based point cloud geometry compression. We argue this stems from two key limitations: the lack of robust context models and the inefficient handling of out-of-distribution (OOD) data. To address both, we introduce AnyPcc, a universal point cloud compression framework. AnyPcc first employs a Universal Context Model that leverages priors from both spatial and channel-wise grouping to capture robust contextual dependencies. Second, our novel Instance-Adaptive Fine-Tuning (IAFT) strategy tackles OOD data by synergizing explicit and implicit compression paradigms. It fine-tunes a small subset of network weights for each instance and incorporates them into the bitstream, where the marginal bit cost of the weights is dwarfed by the resulting savings in geometry compression. Extensive experiments on a benchmark of 15 diverse datasets confirm that AnyPcc sets a new state-of-the-art in point cloud compression. Our code and datasets will be released to encourage reproducible research.
           </p>
       </div>
     </div>
@@ -264,481 +276,8 @@
           
           <!-- 这里空了一行 -->
           <p class="has-text-justified" style="margin-top: 20px;">
-            Overview of our GausPcc-1K dataset and GausPcgc framework. Existing methods neglect Gaussian positions or use suboptimal G-PCC resulting in bitstream inefficiency. GausPcgc trained on our specialized dataset achieves superior inference speed and compression rates.
+            (a) AnyPcc Architecture. A single, unified model compresses point clouds from any source, with our Instance-Adaptive Fine-Tuning (IAFT) module boosting performance on out-of-distribution (OOD) data. (b) AnyPcc Benchmark. Our comprehensive benchmark features 15 diverse datasets, including both standard and extreme cases. When compared against five state-of-the-art methods, AnyPcc consistently achieves high compression efficiency across all types of point clouds. 
           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 数据集部分 (Dataset Section) -->
-<section class="section" id="dataset">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">GausPCC-1K Dataset</h2> <!-- GausPCC-1K 数据集 -->
-        <div class="content">
-          <div class="pdf-container">
-            <!-- 直接显示PNG图片 -->
-            <img src="./static/images/gauspcc-1k.png" alt="GausPCC-1K Dataset" class="image">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 实验结果部分 (Results Section) -->
-<section class="section" id="results">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Experimental Results</h2> <!-- 实验结果 -->
-
-        <!-- 性能对比表格 (Performance Comparison Table) -->
-        <h3 class="title is-4">Performance Comparison</h3> <!-- 性能对比表格 -->
-      </div>
-    </div>
-  </div>
-  
-  <div class="container is-max-desktop">
-    <div class="content has-text-centered">
-      <div class="table-caption">
-        Performance comparison across different datasets and methods, with the best and second-best results highlighted in 
-        <span style="background-color: #FFC7CE; padding: 2px 4px;">red</span> and 
-        <span style="background-color: #FFEB9C; padding: 2px 4px;">yellow</span> cells.
-      </div>
-      
-      <div class="tablecontainer">
-        <table>
-          <thead>
-            <tr>
-              <th rowspan="2"></th>
-              <th colspan="4" class="dataset-header">Mip-NeRF360</th>
-              <th colspan="4" class="dataset-header">Tanks and Temples</th>
-              <th colspan="4" class="dataset-header">Deep Blending</th>
-            </tr>
-            <tr>
-              <th>PSNR↑</th>
-              <th>SSIM↑</th>
-              <th>LPIPS↓</th>
-              <th>Size↓</th>
-              <th>PSNR↑</th>
-              <th>SSIM↑</th>
-              <th>LPIPS↓</th>
-              <th>Size↓</th>
-              <th>PSNR↑</th>
-              <th>SSIM↑</th>
-              <th>LPIPS↓</th>
-              <th>Size↓</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- 基础模型 (Base Models) -->
-            <tr>
-              <td><strong>3DGS</strong></td>
-              <td>27.46</td>
-              <td class="highlight-red">0.812</td>
-              <td>0.222</td>
-              <td>750.9</td>
-              <td>23.69</td>
-              <td>0.844</td>
-              <td>0.178</td>
-              <td>431</td>
-              <td>29.42</td>
-              <td>0.899</td>
-              <td>0.247</td>
-              <td>663.9</td>
-            </tr>
-            <tr>
-              <td><strong>Scaffold-GS</strong></td>
-              <td>27.5</td>
-              <td>0.806</td>
-              <td>0.252</td>
-              <td>253.9</td>
-              <td>23.96</td>
-              <td>0.853</td>
-              <td>0.177</td>
-              <td>86.5</td>
-              <td>30.21</td>
-              <td>0.906</td>
-              <td>0.254</td>
-              <td>66</td>
-            </tr>
-            
-            <!-- 压缩方法 (Compression Methods) -->
-            <tr>
-              <td><strong>Compact3D</strong></td>
-              <td>27.08</td>
-              <td>0.798</td>
-              <td>0.247</td>
-              <td>48.8</td>
-              <td>23.32</td>
-              <td>0.831</td>
-              <td>0.201</td>
-              <td>39.43</td>
-              <td>29.79</td>
-              <td>0.901</td>
-              <td>0.258</td>
-              <td>43.21</td>
-            </tr>
-            <tr>
-              <td><strong>SOG</strong></td>
-              <td>26.56</td>
-              <td>0.791</td>
-              <td>0.241</td>
-              <td>16.7</td>
-              <td>23.15</td>
-              <td>0.828</td>
-              <td>0.198</td>
-              <td>9.3</td>
-              <td>29.12</td>
-              <td>0.892</td>
-              <td>0.270</td>
-              <td>5.7</td>
-            </tr>
-            <tr>
-              <td><strong>Compressed3D</strong></td>
-              <td>26.98</td>
-              <td>0.801</td>
-              <td>0.238</td>
-              <td>28.8</td>
-              <td>23.32</td>
-              <td>0.832</td>
-              <td>0.194</td>
-              <td>17.28</td>
-              <td>29.38</td>
-              <td>0.898</td>
-              <td>0.253</td>
-              <td>25.3</td>
-            </tr>
-            <tr>
-              <td><strong>RDOGaussian</strong></td>
-              <td>27.05</td>
-              <td>0.802</td>
-              <td>0.239</td>
-              <td>23.5</td>
-              <td>23.34</td>
-              <td>0.835</td>
-              <td>0.195</td>
-              <td>12.03</td>
-              <td>29.63</td>
-              <td>0.902</td>
-              <td>0.252</td>
-              <td>18</td>
-            </tr>
-            <tr>
-              <td><strong>ContextGS</strong></td>
-              <td>27.62</td>
-              <td>0.808</td>
-              <td>0.237</td>
-              <td>12.7</td>
-              <td>24.20</td>
-              <td>0.852</td>
-              <td>0.184</td>
-              <td>7.05</td>
-              <td>30.11</td>
-              <td>0.907</td>
-              <td>0.265</td>
-              <td>3.45</td>
-            </tr>
-            <tr>
-              <td><strong>CompGS</strong></td>
-              <td>26.37</td>
-              <td>0.778</td>
-              <td>0.276</td>
-              <td>8.83</td>
-              <td>23.11</td>
-              <td>0.815</td>
-              <td>0.236</td>
-              <td>5.89</td>
-              <td>29.30</td>
-              <td>0.895</td>
-              <td>0.293</td>
-              <td>6.03</td>
-            </tr>
-            <tr>
-              <td><strong>Reduced3DGS</strong></td>
-              <td>27.19</td>
-              <td>0.807</td>
-              <td>0.230</td>
-              <td>29.54</td>
-              <td>23.57</td>
-              <td>0.840</td>
-              <td>0.188</td>
-              <td>14.00</td>
-              <td>29.63</td>
-              <td>0.902</td>
-              <td>0.249</td>
-              <td>18.00</td>
-            </tr>
-            <tr>
-              <td><strong>LightGaussian</strong></td>
-              <td>27.00</td>
-              <td>0.799</td>
-              <td>0.249</td>
-              <td>44.54</td>
-              <td>22.83</td>
-              <td>0.822</td>
-              <td>0.242</td>
-              <td>22.43</td>
-              <td>27.01</td>
-              <td>0.872</td>
-              <td>0.308</td>
-              <td>33.94</td>
-            </tr>
-            
-            <!-- 对比方法 (Comparison Methods) -->
-            <tr>
-              <td><strong>TC-GS</strong></td>
-              <td>27.61</td>
-              <td>0.801</td>
-              <td class="highlight-red">0.166</td>
-              <td>13.85</td>
-              <td>23.94</td>
-              <td>0.843</td>
-              <td class="highlight-red">0.113</td>
-              <td>7.89</td>
-              <td>30.04</td>
-              <td>0.899</td>
-              <td class="highlight-yellow">0.122</td>
-              <td>4.20</td>
-            </tr>
-            <tr>
-              <td><strong>HAC (low)</strong></td>
-              <td>27.55</td>
-              <td>0.807</td>
-              <td>0.239</td>
-              <td>15.23</td>
-              <td>24.29</td>
-              <td>0.850</td>
-              <td>0.185</td>
-              <td>8.06</td>
-              <td>30.06</td>
-              <td>0.907</td>
-              <td>0.267</td>
-              <td>4.31</td>
-            </tr>
-            <tr>
-              <td><strong>HAC (high)</strong></td>
-              <td>27.82</td>
-              <td class="highlight-yellow">0.811</td>
-              <td>0.229</td>
-              <td>25.27</td>
-              <td>24.36</td>
-              <td class="highlight-red">0.857</td>
-              <td>0.174</td>
-              <td>13.22</td>
-              <td>30.27</td>
-              <td class="highlight-yellow">0.910</td>
-              <td>0.255</td>
-              <td>7.65</td>
-            </tr>
-            <tr>
-              <td><strong>HAC++ (low)</strong></td>
-              <td>27.54</td>
-              <td>0.802</td>
-              <td>0.253</td>
-              <td>8.37</td>
-              <td>24.30</td>
-              <td>0.850</td>
-              <td>0.189</td>
-              <td>5.17</td>
-              <td>30.13</td>
-              <td>0.907</td>
-              <td>0.265</td>
-              <td>2.89</td>
-            </tr>
-            <tr>
-              <td><strong>HAC++ (high)</strong></td>
-              <td class="highlight-yellow">27.80</td>
-              <td class="highlight-yellow">0.811</td>
-              <td>0.230</td>
-              <td>18.57</td>
-              <td>24.28</td>
-              <td class="highlight-yellow">0.856</td>
-              <td>0.173</td>
-              <td>10.52</td>
-              <td class="highlight-red">30.34</td>
-              <td class="highlight-yellow">0.910</td>
-              <td>0.253</td>
-              <td>6.71</td>
-            </tr>
-            <tr>
-              <td><strong>CAT-3DGS (low)</strong></td>
-              <td>27.14</td>
-              <td>0.791</td>
-              <td>0.279</td>
-              <td class="highlight-yellow">5.51</td>
-              <td>24.20</td>
-              <td>0.838</td>
-              <td>0.217</td>
-              <td class="highlight-yellow">3.57</td>
-              <td>29.64</td>
-              <td>0.900</td>
-              <td>0.294</td>
-              <td class="highlight-yellow">1.95</td>
-            </tr>
-            <tr>
-              <td><strong>CAT-3DGS (high)</strong></td>
-              <td>27.70</td>
-              <td>0.808</td>
-              <td>0.246</td>
-              <td>12.36</td>
-              <td>24.38</td>
-              <td>0.850</td>
-              <td>0.195</td>
-              <td>6.73</td>
-              <td>30.18</td>
-              <td class="highlight-yellow">0.910</td>
-              <td>0.273</td>
-              <td>3.65</td>
-            </tr>
-            
-            <!-- 我们的方法 (Our Methods) -->
-            <tr>
-              <td><strong>Ours-TC-GS</strong></td>
-              <td>27.59</td>
-              <td>0.800</td>
-              <td class="highlight-yellow">0.167</td>
-              <td>11.94</td>
-              <td>23.88</td>
-              <td>0.838</td>
-              <td class="highlight-yellow">0.117</td>
-              <td>6.74</td>
-              <td>30.14</td>
-              <td>0.901</td>
-              <td class="highlight-red">0.119</td>
-              <td>3.57</td>
-            </tr>
-            <tr>
-              <td><strong>Ours-HAC (low)</strong></td>
-              <td>27.54</td>
-              <td>0.807</td>
-              <td>0.239</td>
-              <td>12.48</td>
-              <td>24.23</td>
-              <td>0.849</td>
-              <td>0.187</td>
-              <td>6.53</td>
-              <td>30.11</td>
-              <td>0.906</td>
-              <td>0.266</td>
-              <td>3.56</td>
-            </tr>
-            <tr>
-              <td><strong>Ours-HAC (high)</strong></td>
-              <td class="highlight-red">27.86</td>
-              <td class="highlight-yellow">0.811</td>
-              <td>0.229</td>
-              <td>22.03</td>
-              <td class="highlight-red">24.52</td>
-              <td class="highlight-red">0.857</td>
-              <td>0.175</td>
-              <td>10.87</td>
-              <td>30.30</td>
-              <td class="highlight-red">0.911</td>
-              <td>0.254</td>
-              <td>6.63</td>
-            </tr>
-            <tr>
-              <td><strong>Ours-HAC++ (low)</strong></td>
-              <td>27.58</td>
-              <td>0.803</td>
-              <td>0.252</td>
-              <td>8.18</td>
-              <td>24.18</td>
-              <td>0.848</td>
-              <td>0.189</td>
-              <td>5.22</td>
-              <td>30.17</td>
-              <td>0.907</td>
-              <td>0.266</td>
-              <td>2.83</td>
-            </tr>
-            <tr>
-              <td><strong>Ours-HAC++ (high)</strong></td>
-              <td class="highlight-yellow">27.80</td>
-              <td class="highlight-yellow">0.811</td>
-              <td>0.231</td>
-              <td>18.25</td>
-              <td>24.33</td>
-              <td class="highlight-yellow">0.856</td>
-              <td>0.174</td>
-              <td>10.3</td>
-              <td class="highlight-yellow">30.31</td>
-              <td class="highlight-yellow">0.910</td>
-              <td>0.254</td>
-              <td>6.69</td>
-            </tr>
-            <tr>
-              <td><strong>Ours-CAT (low)</strong></td>
-              <td>27.13</td>
-              <td>0.790</td>
-              <td>0.281</td>
-              <td class="highlight-red">4.33</td>
-              <td>24.12</td>
-              <td>0.836</td>
-              <td>0.219</td>
-              <td class="highlight-red">2.87</td>
-              <td>29.81</td>
-              <td>0.900</td>
-              <td>0.294</td>
-              <td class="highlight-red">1.56</td>
-            </tr>
-            <tr>
-              <td><strong>Ours-CAT (high)</strong></td>
-              <td>27.70</td>
-              <td>0.808</td>
-              <td>0.247</td>
-              <td>10.42</td>
-              <td class="highlight-yellow">24.45</td>
-              <td>0.850</td>
-              <td>0.195</td>
-              <td>5.49</td>
-              <td>30.10</td>
-              <td class="highlight-yellow">0.910</td>
-              <td>0.273</td>
-              <td>3.12</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RD曲线 (RD Curves) -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h3 class="title is-4">Rate-Distortion Curves</h3> <!-- RD 曲线 -->
-        <div class="content">
-          <div class="columns is-multiline">
-            <!-- PSNR曲线 (PSNR Curve) -->
-            <div class="column is-12">
-              <h4 class="subtitle is-5">PSNR</h4>
-              <div class="image-container">
-                <img src="./static/images/rd_curves_psnr.png" alt="PSNR RD Curves">
-        </div>
-      </div>
-            <!-- LPIPS曲线 (LPIPS Curve) -->
-            <div class="column is-12">
-              <h4 class="subtitle is-5">LPIPS</h4>
-              <div class="image-container">
-                <img src="./static/images/rd_curves_lpips.png" alt="LPIPS RD Curves">
-        </div>
-      </div>
-            <!-- SSIM曲线 (SSIM Curve) -->
-            <div class="column is-12">
-              <h4 class="subtitle is-5">SSIM</h4>
-              <div class="image-container">
-                <img src="./static/images/rd_curves_ssim.png" alt="SSIM RD Curves">
-          </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -757,9 +296,9 @@
             Website built upon <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
             Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>.
           </p>
-          <p>
-            Dataset licensed under <a rel="license" href="https://github.com/DL3DV-10K/Dataset?tab=License-1-ov-file">DL3DV-10K License</a>.
-          </p>
+          <!-- <p> -->
+            <!-- Dataset licensed under <a rel="license" href="https://github.com/DL3DV-10K/Dataset?tab=License-1-ov-file">DL3DV-10K License</a>. -->
+          <!-- </p> -->
         </div>
       </div>
     </div>
